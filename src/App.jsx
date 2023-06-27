@@ -11,14 +11,20 @@ function App() {
 			setItem(item - 1);
 		}
 	};
+
+	const addToCart = () =>{
+		console.log(item)
+		
+	}
+
 	return (
 		<>
 			<Header />
-			<section className="grid grid-cols-1 md:grid-cols-2 place-content-center max-w-5xl mx-auto md:my-16">
+			<section className="grid grid-cols-1 md:grid-cols-2 place-content-center max-w-5xl mx-auto md:my-16 md:px-10">
 				<ProductGallery />
 				<article className="my-7 md:my-14 mx-8">
 					<h4 className=" uppercase text-orange-500 font-semibold tracking-widest mb-4">Sneaker Company</h4>
-					<h1 className=" font-black text-[2rem] md:text-[3rem] leading-[1] mb-5 md:mb-10"> Fall Limited Edition Sneakers</h1>
+					<h1 className=" font-black text-[2rem] lg:text-[3rem] leading-[1] mb-5 md:mb-10"> Fall Limited Edition Sneakers</h1>
 					<p className="text-gray-600 font-medium mb-8">
 						These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything
 						the weather can offer.
@@ -49,7 +55,7 @@ function App() {
 							</ul>
 						</div>
 
-						<button className="flex w-full justify-center items-center space-x-4 my-3 bg-orange-500 shadow-xl shadow-orange-500/30  text-white font-semibold p-2 rounded-lg px-4 hover:scale-[.99] transition  ease-in-out duration-300">
+						<button onClick={addToCart} className="flex w-full justify-center items-center space-x-4 my-3 bg-orange-500 shadow-xl shadow-orange-500/30  text-white font-semibold p-2 rounded-lg px-4 hover:scale-[.99] transition  ease-in-out duration-300">
 							<HiOutlineShoppingCart className="h-5 w-5" />
 							<h1 className="text-[15px] lg:text-[16px]">Add to cart</h1>
 						</button>

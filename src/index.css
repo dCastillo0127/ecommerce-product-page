@@ -1,16 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-img{
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
+img {
 	max-width: 100%;
 }
 
-body{
-  font-family: "Kumbh Sans", sans-serif;
+body {
+	font-family: "Kumbh Sans", sans-serif;
 }
 
-ul{
+ul {
 	list-style-type: none;
 }
