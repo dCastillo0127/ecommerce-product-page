@@ -3,9 +3,10 @@ import axios from "axios";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import { Modal } from "@mui/material";
+import product from "../../data.json"
 
 const ProductGallery = () => {
-	const [product, setProduct] = useState([]);
+	// const [product, setProduct] = useState([]);
 	const [value, setValue] = useState(0);
 	const [open, setOpen] = useState(false);
 
@@ -25,25 +26,26 @@ const ProductGallery = () => {
 		}
 	};
 
-	// axios api call
+	// AXIOS API CALL
 	// useEffect(() => {
 	// 	axios.get("http://localhost:3006/products").then((response) => {
 	// 		setProduct(response.data);
 	// 	});
 	// }, []);
 
-	useEffect(() => {
-		fetch("../../data.json")
-			.then((res) => {
-				return res.json();
-			})
-			.then((data) => {
-				setProduct(data);
-			})
-			.catch((e) => {
-				console.log(e.message);
-			});
-	}, []);
+	// JSON FETCH
+	// useEffect(() => {
+	// 	fetch("../../data.json")
+	// 		.then((res) => {
+	// 			return res.json();
+	// 		})
+	// 		.then((data) => {
+	// 			setProduct(data);
+	// 		})
+	// 		.catch((e) => {
+	// 			console.log(e.message);
+	// 		});
+	// }, []);
 
 	const mainImage = { ...product[value] };	
 
