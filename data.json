@@ -1,5 +1,4 @@
-{
-	"products": [
+[
 		{
 			"id": 1,
 			"productImg": "/images/image-product-1.jpg",
@@ -21,4 +20,3 @@
 			"thumbnail": "/images/image-product-4-thumbnail.jpg"
 		}
 	]
-}

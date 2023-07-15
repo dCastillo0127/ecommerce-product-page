@@ -9,8 +9,6 @@ const ProductGallery = () => {
 	const [value, setValue] = useState(0);
 	const [open, setOpen] = useState(false);
 
-	const mainImage = { ...product[value] };
-
 	const nextImage = () => {
 		if (value !== product.length - 1) {
 			setValue(value + 1);
@@ -26,11 +24,28 @@ const ProductGallery = () => {
 			setValue(value - 1);
 		}
 	};
+
+	// axios api call
+	// useEffect(() => {
+	// 	axios.get("http://localhost:3006/products").then((response) => {
+	// 		setProduct(response.data);
+	// 	});
+	// }, []);
+
 	useEffect(() => {
-		axios.get("http://localhost:3006/products").then((response) => {
-			setProduct(response.data);
-		});
+		fetch("../../data.json")
+			.then((res) => {
+				return res.json();
+			})
+			.then((data) => {
+				setProduct(data);
+			})
+			.catch((e) => {
+				console.log(e.message);
+			});
 	}, []);
+
+	const mainImage = { ...product[value] };	
 
 	return (
 		<>
@@ -94,6 +109,7 @@ const ProductGallery = () => {
 					))}
 				</div>
 			</section>
+			
 		</>
 	);
 };
