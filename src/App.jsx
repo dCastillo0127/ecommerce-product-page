@@ -2,11 +2,12 @@ import { useState } from "react";
 import Header from "./components/Header";
 import ProductGallery from "./components/ProductGallery";
 import { HiOutlineMinus, HiOutlinePlus, HiOutlineShoppingCart } from "react-icons/hi";
-import Cart from "./components/Cart";
+import { CircularProgress } from "@mui/material";
 
 function App() {
 	const [item, setItem] = useState(0);
 	const [cartItem, setCartItem] = useState(0);
+	const [load, setLoad] = useState(false);
 	const price = 125;
 
 	const minusItem = () => {
@@ -16,12 +17,18 @@ function App() {
 	};
 
 	const addToCart = () => {
+		setLoad(true);
 		setCartItem(item);
+		setItem(0);
+		setTimeout(()=>{
+			setLoad(false)
+		}, 1000)
+		
 	};
 
 	return (
 		<>
-			<Header cartItem={cartItem} setCartItem={setCartItem} price={price}/>
+			<Header cartItem={cartItem} setCartItem={setCartItem} price={price} />
 			<section className="grid grid-cols-1 md:grid-cols-2 place-content-center max-w-5xl mx-auto md:my-16 md:px-10">
 				<ProductGallery />
 				<article className="my-7 md:my-14 mx-8">
@@ -61,8 +68,14 @@ function App() {
 							onClick={addToCart}
 							className="flex w-full justify-center items-center space-x-4 my-3 bg-orange-500 shadow-xl shadow-orange-500/30  text-white font-semibold p-2 rounded-lg px-4 hover:scale-[.99] transition  ease-in-out duration-300"
 						>
-							<HiOutlineShoppingCart className="h-5 w-5" />
-							<h1 className="text-[15px] lg:text-[16px]">Add to cart</h1>
+							{load ? (
+								<CircularProgress sx={{color: "#e3bc83"}} size={22} />
+							) : (
+								<>
+									<HiOutlineShoppingCart className="h-5 w-5" />
+									<h1 className="text-[15px] lg:text-[16px]">Add to cart</h1>
+								</>
+							)}
 						</button>
 					</section>
 				</article>

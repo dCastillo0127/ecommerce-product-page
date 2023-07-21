@@ -4,8 +4,7 @@ import cart from "../images/icon-cart.svg";
 import { HiMenu } from "react-icons/hi";
 import avatar from "../images/image-avatar.png";
 import useResponsive from "../hooks/UseResponsive";
-import { Avatar } from "@mui/material";
-import { Modal } from "@mui/material";
+import { Avatar, Badge, Modal } from "@mui/material";
 import Cart from "./Cart";
 
 const Header = ({ cartItem, setCartItem, price }) => {
@@ -17,7 +16,6 @@ const Header = ({ cartItem, setCartItem, price }) => {
 	const Desktop = useResponsive("up", "md");
 	const Mobile = useResponsive("down", "sm");
 
-	const listAdded = () => {};
 	return (
 		<>
 			<div className="flex justify-between items-center border-b mx-6 lg:max-w-5xl lg:mx-auto">
@@ -56,8 +54,19 @@ const Header = ({ cartItem, setCartItem, price }) => {
 				</div>
 				<div className="flex items-center space-x-8">
 					<section>
-						<img src={cart} alt="cart" onClick={(e) => setAnchor(e.currentTarget)} className=" cursor-pointer" />
-						<Cart anchor={anchor} openAnchor={openAnchor} setAnchor={setAnchor} cartItem={cartItem} setCartItem={setCartItem} price={price}/>
+						<Badge
+							badgeContent={cartItem}
+							color="primary"
+							sx={{
+								"& .MuiBadge-badge": {
+									color: "white",
+									backgroundColor: "#dc7135",
+								},
+							}}
+						>
+							<img src={cart} alt="cart" onClick={(e) => setAnchor(e.currentTarget)} className=" cursor-pointer" />
+						</Badge>
+						<Cart anchor={anchor} openAnchor={openAnchor} setAnchor={setAnchor} cartItem={cartItem} setCartItem={setCartItem} price={price} />
 					</section>
 					<Avatar alt="user" src={avatar} sx={{ width: 40, height: 40 }} />
 				</div>
