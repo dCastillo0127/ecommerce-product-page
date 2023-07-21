@@ -3,11 +3,12 @@ import logo from "../images/logo.svg";
 import cart from "../images/icon-cart.svg";
 import { HiMenu } from "react-icons/hi";
 import avatar from "../images/image-avatar.png";
-import { Avatar, Menu, MenuItem } from "@mui/material";
 import useResponsive from "../hooks/UseResponsive";
+import { Avatar } from "@mui/material";
 import { Modal } from "@mui/material";
+import Cart from "./Cart";
 
-const Header = () => {
+const Header = ({ cartItem, setCartItem, price }) => {
 	const menu = ["Collections", "Men", "Women", "About", "Contact"];
 	const [open, setOpen] = useState(false);
 	const [anchor, setAnchor] = useState(null);
@@ -56,27 +57,7 @@ const Header = () => {
 				<div className="flex items-center space-x-8">
 					<section>
 						<img src={cart} alt="cart" onClick={(e) => setAnchor(e.currentTarget)} className=" cursor-pointer" />
-						<Menu
-							id="basic-menu"
-							anchorEl={anchor}
-							open={openAnchor}
-							onClose={() => setAnchor(null)}
-							anchorOrigin={{
-								vertical: "bottom",
-								horizontal: "right",
-							}}
-							transformOrigin={{
-								vertical: "top",
-								horizontal: "right",
-							}}
-						>
-							<h3 className="mx-5 my-4 font-semibold text-slate-800">Cart</h3>
-							<hr className={Mobile ? "w-screen": " w-72"}/>
-							<a className="m-10 text-center text-sm flex justify-center font-semibold text-gray-400">
-								Your cart is empty
-							</a>
-							{/* <MenuItem sx={{ backgroundColor: "#f97316", borderRadius: 2, marginX: 2, marginY: 1, color: "white", display: "flex", justifyContent: "center", fontWeight: 600 }}>Checkout</MenuItem> */}
-						</Menu>
+						<Cart anchor={anchor} openAnchor={openAnchor} setAnchor={setAnchor} cartItem={cartItem} setCartItem={setCartItem} price={price}/>
 					</section>
 					<Avatar alt="user" src={avatar} sx={{ width: 40, height: 40 }} />
 				</div>

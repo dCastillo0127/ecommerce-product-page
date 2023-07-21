@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import { Modal } from "@mui/material";
@@ -9,6 +8,7 @@ const ProductGallery = () => {
 	// const [product, setProduct] = useState([]);
 	const [value, setValue] = useState(0);
 	const [open, setOpen] = useState(false);
+	
 
 	const nextImage = () => {
 		if (value !== product.length - 1) {
@@ -48,8 +48,6 @@ const ProductGallery = () => {
 	// }, []);
 
 	const mainImage = { ...product[value] };
-
-	console.log(mainImage);
 
 	return (
 		<>
