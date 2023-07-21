@@ -37,7 +37,7 @@ function App() {
 					</div>
 
 					<section className="sm:grid grid-cols-2 gap-5">
-						<div className=" bg-slate-500/10 rounded-lg  my-3">
+						<div className=" bg-[#f7f8fd] rounded-lg  my-3">
 							<ul className="flex justify-around items-center py-2">
 								<button onClick={minusItem}>
 									<li className=" text-orange-400 ">

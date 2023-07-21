@@ -6,7 +6,6 @@ import avatar from "../images/image-avatar.png";
 import { Avatar, Menu, MenuItem } from "@mui/material";
 import useResponsive from "../hooks/UseResponsive";
 import { Modal } from "@mui/material";
-import { orange } from "@mui/material/colors";
 
 const Header = () => {
 	const menu = ["Collections", "Men", "Women", "About", "Contact"];
@@ -21,7 +20,7 @@ const Header = () => {
 	return (
 		<>
 			<div className="flex justify-between items-center border-b mx-6 lg:max-w-5xl lg:mx-auto">
-				<div className="flex items-center mx-2 lg:mx-4 py-7 gap-2  ">
+				<div className="flex items-center mx-2 lg:mx-4 py-10 gap-2  ">
 					{!Desktop && (
 						<section>
 							<HiMenu className="w-6 h-6 cursor-pointer" onClick={() => setOpen(true)} />
@@ -73,7 +72,10 @@ const Header = () => {
 						>
 							<h3 className="mx-5 my-4 font-semibold text-slate-800">Cart</h3>
 							<hr className={Mobile ? "w-screen": " w-72"}/>
-							<MenuItem sx={{ backgroundColor: "#f97316", borderRadius: 2, marginX: 2, marginY: 1, color: "white", display: "flex", justifyContent: "center", fontWeight: 600 }}>Checkout</MenuItem>
+							<a className="m-10 text-center text-sm flex justify-center font-semibold text-gray-400">
+								Your cart is empty
+							</a>
+							{/* <MenuItem sx={{ backgroundColor: "#f97316", borderRadius: 2, marginX: 2, marginY: 1, color: "white", display: "flex", justifyContent: "center", fontWeight: 600 }}>Checkout</MenuItem> */}
 						</Menu>
 					</section>
 					<Avatar alt="user" src={avatar} sx={{ width: 40, height: 40 }} />

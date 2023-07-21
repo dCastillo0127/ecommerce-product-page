@@ -3,7 +3,7 @@ import axios from "axios";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import { Modal } from "@mui/material";
-import product from "../../data.json"
+import product from "../../data.json";
 
 const ProductGallery = () => {
 	// const [product, setProduct] = useState([]);
@@ -47,7 +47,9 @@ const ProductGallery = () => {
 	// 		});
 	// }, []);
 
-	const mainImage = { ...product[value] };	
+	const mainImage = { ...product[value] };
+
+	console.log(mainImage);
 
 	return (
 		<>
@@ -58,7 +60,7 @@ const ProductGallery = () => {
 						className="h-6 w-6 text-white absolute right-2 top-10 md:top-9 cursor-pointer hover:scale-75 duration-300 z-10"
 					/>
 					<section className="flex items-center justify-center h-screen">
-						<img src={mainImage?.productImg} onClick={() => setOpen(true)} className="rounded-2xl" />
+						<img src={mainImage.productImg} onClick={() => setOpen(true)} className="rounded-2xl" />
 						<div className="absolute inset-0 flex items-center justify-between px-3">
 							<button
 								onClick={previousImage}
@@ -76,7 +78,7 @@ const ProductGallery = () => {
 
 			<section className="w-[full] lg:w-[27rem] mx-auto ">
 				<section className="flex items-center justify-center ">
-					<img src={mainImage?.productImg} className="md:rounded-3xl " onClick={() => setOpen(true)} />
+					<img src={mainImage.productImg} className="md:rounded-3xl " onClick={() => setOpen(true)} />
 					<div className="inline-block md:hidden ">
 						<button
 							onClick={previousImage}
@@ -111,7 +113,6 @@ const ProductGallery = () => {
 					))}
 				</div>
 			</section>
-			
 		</>
 	);
 };
